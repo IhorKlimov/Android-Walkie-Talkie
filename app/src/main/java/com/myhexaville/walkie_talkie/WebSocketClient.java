@@ -49,7 +49,7 @@ public final class WebSocketClient extends WebSocketListener {
 
     private final Context mContext;
     static List<byte[]> sList = new ArrayList<>();
-     WebSocket mSocket;
+    WebSocket mSocket;
     private MediaPlayer mPlayer;
 
 
@@ -73,6 +73,7 @@ public final class WebSocketClient extends WebSocketListener {
 
     @Override
     public void onOpen(final WebSocket webSocket, Response response) {
+        Log.d(LOG_TAG, "onOpen: ");
         mSocket = webSocket;
     }
 
@@ -127,7 +128,7 @@ public final class WebSocketClient extends WebSocketListener {
 
                 sList.add(bytes);
             } catch (IllegalArgumentException e) {
-//            e.printStackTrace();
+                e.printStackTrace();
             }
         }
     }
@@ -194,7 +195,5 @@ public final class WebSocketClient extends WebSocketListener {
 
         mPlayer.start();
     }
-
-
 
 }
